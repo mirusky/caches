@@ -96,7 +96,7 @@ func (c *Caches) ease(db *gorm.DB, identifier string) {
 
 func (c *Caches) checkCache(db *gorm.DB, identifier string) bool {
 	if c.Conf.Cacher != nil {
-		if res := c.Conf.Cacher.Get(identifier); res != nil {
+		if res := c.Conf.Cacher.Get(identifier, db.Statement.Model); res != nil {
 			res.replaceOn(db)
 			return true
 		}

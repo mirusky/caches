@@ -8,11 +8,11 @@ import (
 	"gorm.io/gorm/schema"
 )
 
-func SetPointedValue(dest interface{}, src interface{}) {
+func SetPointedValue(dest any, src any) {
 	reflect.ValueOf(dest).Elem().Set(reflect.ValueOf(src).Elem())
 }
 
-func deepCopy(src, dst interface{}) error {
+func deepCopy(src, dst any) error {
 	srcVal := reflect.ValueOf(src)
 	dstVal := reflect.ValueOf(dst)
 

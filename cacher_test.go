@@ -15,7 +15,7 @@ func (c *cacherMock) init() {
 	}
 }
 
-func (c *cacherMock) Get(key string) *Query {
+func (c *cacherMock) Get(key string, model any) *Query {
 	c.init()
 	val, ok := c.store.Load(key)
 	if !ok {
@@ -41,7 +41,7 @@ func (c *cacherStoreErrorMock) init() {
 	}
 }
 
-func (c *cacherStoreErrorMock) Get(key string) *Query {
+func (c *cacherStoreErrorMock) Get(key string, model any) *Query {
 	c.init()
 	val, ok := c.store.Load(key)
 	if !ok {

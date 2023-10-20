@@ -3,7 +3,7 @@ package caches
 import "gorm.io/gorm"
 
 type Query struct {
-	Dest         interface{}
+	Dest         any
 	RowsAffected int64
 }
 

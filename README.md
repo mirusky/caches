@@ -163,7 +163,7 @@ func (c *dummyCacher) init() {
 	}
 }
 
-func (c *dummyCacher) Get(key string) *caches.Query {
+func (c *dummyCacher) Get(key string, model any) *caches.Query {
 	c.init()
 	val, ok := c.store.Load(key)
 	if !ok {
